@@ -6,7 +6,7 @@ import pandas as pd
 import pickle
 
 # Load the trained model
-model = tf.keras.models.load_model('churn_model.h5')
+model = tf.keras.models.load_model('churn_model.keras')
 
 # Load the encoders and scaler
 with open('label_encode_gender.pkl', 'rb') as file:
@@ -25,7 +25,7 @@ st.title('Customer Churn PRediction')
 # User input
 geography = st.selectbox('Geography', one_hot_encode.categories_[0])
 gender = st.selectbox('Gender', label_encode_gender.classes_)
-age = st.slider('Age', 18, 92)
+age = st.slider('Age', 18, 80)
 balance = st.number_input('Balance')
 credit_score = st.number_input('Credit Score')
 estimated_salary = st.number_input('Estimated Salary')
